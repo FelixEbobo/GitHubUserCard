@@ -1,0 +1,26 @@
+body {
+    background-color: #bababa;
+}
+
+.spinner::after {
+    content: "";
+    box-sizing: border-box;
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    height: 100px;
+    width: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    border-radius: 50%;
+    border: 6px solid rgba(230, 230, 230);
+    border-top: 6px solid rgb(177, 177, 177); 
+    animation: spinner 0.8s linear infinite;
+}
+
+
+@keyframes spinner {
+    to {
+        transform: rotate(720deg);
+    }
+}
