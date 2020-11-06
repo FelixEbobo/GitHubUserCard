@@ -4,10 +4,11 @@ import "../static/css/user-info.css"
 import "../static/css/user-reps.css"
 import PinnedIcon from "../static/svg/pinned.svg"
 import RepIcon from '../static/svg/repository.svg'
+import DrawRepCard from "./DrawRepCard"
 // import {nextBtn, prevBtn, 
         // pinnedReps, pinnedRepsSlider} from "../static/js/ButtonSlider" 
 
-const DrawCard = ({isLoading, searchResult}) => {
+const DrawUserCard = ({isLoading, searchResult}) => {
 
     let counter = 0;
 
@@ -32,7 +33,7 @@ const DrawCard = ({isLoading, searchResult}) => {
             }
         }
         if (event.target.innerHTML === "Next") {
-            if (counter < pinnedReps.length - 1) {
+            if (counter < pinnedReps.length - 3) {
                 counter++
                 pinnedRepsSlider.style.transform = "translateX(" +
                     (-size) * counter + "px)"
@@ -81,11 +82,11 @@ const DrawCard = ({isLoading, searchResult}) => {
                  unselectable="on"
                  onClick={handleSlider}>Prev</div>
             <div id="slider">
-                <div className="rep"></div>
-                <div className="rep"></div>
-                <div className="rep"></div>
-                <div className="rep"></div>
-                <div className="rep"></div>
+                <DrawRepCard />
+                <DrawRepCard />
+                <DrawRepCard />
+                <DrawRepCard />
+                <DrawRepCard />
             </div>
             <div id="nextBtn"
                  unselectable="on"
@@ -102,4 +103,4 @@ const DrawCard = ({isLoading, searchResult}) => {
     )
 }
 
-export default DrawCard
+export default DrawUserCard

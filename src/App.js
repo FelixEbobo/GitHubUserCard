@@ -1,6 +1,6 @@
 import {useState, } from 'react'
 import Search from "./Components/Search"
-import DrawCard from './Components/DrawCard'
+import DrawUserCard from './Components/DrawUserCard'
 
 function App() {
 
@@ -12,7 +12,7 @@ function App() {
       <Search 
         setSearchResult={setSearchResult} 
         setIsLoading={setIsLoading}/>
-      <DrawCard
+      <DrawUserCard
         isLoading={isLoading}
         searchResult={searchResult}
       />
