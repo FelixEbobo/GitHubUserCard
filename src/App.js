@@ -1,10 +1,10 @@
-import {useState, useEffect} from 'react'
+import {useState, } from 'react'
 import Search from "./Components/Search"
 import DrawCard from './Components/DrawCard'
 
 function App() {
 
-  const [searchResult, setSearchResult] = useState({})
+  const [searchResult, setSearchResult] = useState()
   const [isLoading, setIsLoading] = useState(false)
 
   return (
@@ -14,6 +14,7 @@ function App() {
         setIsLoading={setIsLoading}/>
       <DrawCard
         isLoading={isLoading}
+        searchResult={searchResult}
       />
     </>
   );

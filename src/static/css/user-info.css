@@ -1,0 +1,80 @@
+.user-card {
+    margin: 100px auto 0;
+    padding: 1rem;
+    width: 680px;
+    height: fit-content;
+    background-color: #fafafa;
+    display: flex;
+    flex-direction: column;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: row;
+    font: 1rem sans-serif;
+}
+
+.user-info div {
+    padding-left: 32px;
+}
+
+.user-info h4 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.user-info h6 {
+    font-size: 1.2rem;
+}
+
+.user-info p {
+    padding-top: 12px;
+    font-size: 1rem;
+}
+
+.user-card .user-info img {
+    width: 150px;
+    border-radius: 50%;
+    border: 1px solid gray;
+}
+
+.user-reps {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 2rem;
+}
+
+.links {
+    width: 200px;
+    /* padding-right: 10px; */
+}
+
+.links li {
+    margin-top: 4px;
+}
+
+.orgs {
+    width: 200px;
+}
+.orgs p {
+    font-weight: bold;
+}
+
+.reps {
+    width: 100px;
+}
+
+.reps img {
+    display: block;
+    width: 48px;
+    height: auto;
+    margin: 0 auto;
+}
+
+.reps p {
+    width: fit-content;
+    padding-top: 6px;
+    font-size: 2.5rem;
+    margin: 0 auto;
+}

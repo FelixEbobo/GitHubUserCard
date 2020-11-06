@@ -7,15 +7,17 @@ const Search = ({setSearchResult, setIsLoading}) => {
     const [searchQuery, setSearchQuery] = useState('')
 
     const handleSearch = async (event) => {
+        setSearchResult();
         event.preventDefault();
         const searchValue = searchQuery.toLowerCase();
         const url = "https://api.github.com/users/" + searchValue
-        console.log(url)
+        // console.log(url)
         setSearchQuery('')
         setIsLoading(true)
-        setTimeout(() => {
-            setIsLoading(false)
-        }, 2000)
+        const searchResult = await (await fetch(url)).json()
+        // console.log(searchResult)
+        setIsLoading(false)
+        setSearchResult(searchResult)
     }
     
     const handleChange = event => {
@@ -33,7 +35,6 @@ const Search = ({setSearchResult, setIsLoading}) => {
                 onChange={handleChange}></input>
             <button type="submit">Search</button>
         </form>
-        <p>{searchQuery}</p>
         </>
     )
 }

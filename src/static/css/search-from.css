@@ -1,4 +1,12 @@
 form {
+    width: 712px;
     text-align: center;
-    margin: 40px auto 0;
+    margin: 40px auto;
+}
+form input {
+    width: 630px;
+}
+
+form button {
+    height: 30px;
 }

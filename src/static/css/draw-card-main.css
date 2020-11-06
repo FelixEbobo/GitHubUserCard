@@ -6,7 +6,7 @@ body {
     content: "";
     box-sizing: border-box;
     position: absolute;
-    top: 50%;
+    top: 15%;
     left: 50%;
     height: 100px;
     width: 100px;
