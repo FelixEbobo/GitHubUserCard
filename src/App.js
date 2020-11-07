@@ -5,16 +5,21 @@ import DrawUserCard from './Components/DrawUserCard'
 function App() {
 
   const [searchResult, setSearchResult] = useState()
+  const [userRepos, setUserRepos] = useState()
   const [isLoading, setIsLoading] = useState(false)
 
   return (
     <>
       <Search 
         setSearchResult={setSearchResult} 
-        setIsLoading={setIsLoading}/>
+        searchResult={searchResult}
+        setIsLoading={setIsLoading}
+        setUserRepos={setUserRepos}
+        />
       <DrawUserCard
         isLoading={isLoading}
         searchResult={searchResult}
+        userRepos={userRepos}
       />
     </>
   );

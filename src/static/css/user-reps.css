@@ -2,11 +2,11 @@
     display: grid;
     grid-template-columns: 16px 648px 16px;
     overflow: hidden;
-    height: 220px;
+    height: 180px;
     background-color: gray;
     width: 680px;
     margin: 0 auto 0;
-    padding: 1rem;
+    padding: 16px;
 }
 
 #slider {
@@ -14,13 +14,23 @@
     transition: 0.45s ease-in-out;
 }
 
-.rep {
-    padding: 12px;
-    margin-right: 1rem;
-    height: 196px;
+#slider .rep {
+    margin-bottom: 0;
     min-width: 187px;
+    max-width: 284px;
+}
+
+.rep {
+    overflow: hidden;
+    padding: 12px;
+    margin-right: 16px;
+    margin-bottom: 16px;
+    height: 154px;
+    min-width: 284px;
+    max-width: 284px;
     background-color: white;
     animation: scaleDown 0.2s ease;
+    box-shadow: 0px 4px 8px rgb(0, 0, 0, 0.5);
 }
 
 .rep p {
@@ -80,3 +90,12 @@
     margin-right: 8px;
 }
 
+.user-reps {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 16px 32px 16px;
+    width: 648px;
+    min-height: 220px;
+    background-color: white;
+    margin: 0px auto;
+}

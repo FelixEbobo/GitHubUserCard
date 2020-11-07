@@ -38,7 +38,7 @@
     border: 1px solid gray;
 }
 
-.user-reps {
+.user-reps-info {
     display: flex;
     flex-direction: row;
     justify-content: space-between;

@@ -1,19 +1,22 @@
 import React from 'react'
 import "../static/css/user-reps.css"
+import Colors from "../static/css/colors.json"
 
-const DrawRepCard = () => {
+const DrawRepCard = ({name, language, description}) => {
     return (
         <div className="rep">
-            <a href="#">Title</a>
-            <p>
-                <span className="circle" />
-                jupyter notebook
-            </p>
+            <a href="#">{name}</a>
+            {language && <p>
+                <span 
+                    className="circle" 
+                    style={{backgroundColor: Colors[language]}}/>
+                {language}
+            </p>}
             <p>
                 <span>stars</span>
                 <span>forks</span>
             </p>
-            <p className="description">The Repository for the FirstTimersOnly movement in Open Source. We want projects to reserve some issues for newbies.</p>
+            <p className="description">{description}</p>
         </div>
     )
 }

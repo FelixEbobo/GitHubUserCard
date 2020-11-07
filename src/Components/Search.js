@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import '../static/css/reset.css'
 import '../static/css/search-from.css'
 
-const Search = ({setSearchResult, setIsLoading}) => {
+const Search = ({setSearchResult, setIsLoading, 
+                 searchResult, setUserRepos}) => {
 
     const [searchQuery, setSearchQuery] = useState('')
 
@@ -15,9 +16,12 @@ const Search = ({setSearchResult, setIsLoading}) => {
         setSearchQuery('')
         setIsLoading(true)
         const searchResult = await (await fetch(url)).json()
+        const {repos_url} = searchResult
+        const userRepos = await (await fetch(repos_url)).json()
         // console.log(searchResult)
-        setIsLoading(false)
+        setUserRepos(Array.from(userRepos))
         setSearchResult(searchResult)
+        setIsLoading(false)
     }
     
     const handleChange = event => {
