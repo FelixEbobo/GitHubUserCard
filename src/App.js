@@ -1,6 +1,7 @@
 import {useState, } from 'react'
 import Search from "./Components/Search"
 import DrawUserCard from './Components/DrawUserCard'
+require('dotenv').config()
 
 function App() {
 
@@ -16,11 +17,13 @@ function App() {
         setIsLoading={setIsLoading}
         setUserRepos={setUserRepos}
         />
-      <DrawUserCard
-        isLoading={isLoading}
+      {isLoading && <div className="spinner"/>}
+      {!isLoading && <DrawUserCard
+        // isLoading={isLoading}
+        key={Date.now().toString()}
         searchResult={searchResult}
         userRepos={userRepos}
-      />
+      />}
     </>
   );
 }

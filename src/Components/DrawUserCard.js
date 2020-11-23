@@ -5,22 +5,23 @@ import "../static/css/user-reps.css"
 import PinnedIcon from "../static/svg/pinned.svg"
 import RepIcon from '../static/svg/repository.svg'
 import DrawRepCard from "./DrawRepCard"
+import DrawPopRepCard from './DrawPopRepCard'
 // import {nextBtn, prevBtn, 
         // pinnedReps, pinnedRepsSlider} from "../static/js/ButtonSlider" 
 
-const DrawUserCard = ({isLoading, searchResult,
+const DrawUserCard = ({searchResult,
                        userRepos}) => {
 
     let counter = 0;
 
     if (searchResult) {
         console.log(searchResult)
-    }
+    }   
 
     const handleSlider = event => {
         const pinnedRepsSlider = document.querySelector("#slider")
         const pinnedReps = document.querySelectorAll("#slider .rep")
-        const size = pinnedReps[0].clientWidth + 16
+        const size = pinnedReps[0] !== undefined ? pinnedReps[0].clientWidth + 16 : 216
         if (event.target.innerHTML === "Prev") {
             if (counter >= 1) {
                 counter--
@@ -71,7 +72,7 @@ const DrawUserCard = ({isLoading, searchResult,
                 </div>
                 <div className="reps">
                     <img src={PinnedIcon} alt="pinned" />
-                    <p>000</p>
+                    <p>{searchResult.pinned.length}</p>
                 </div>
                 <div className="reps">
                     <img src={RepIcon} />
@@ -79,34 +80,26 @@ const DrawUserCard = ({isLoading, searchResult,
                 </div>
             </div>
         </div>
-        {/* <div className="user-pin-reps">
-            <div id="prevBtn" 
-                 unselectable="on"
-                 onClick={handleSlider}>Prev</div>
-            <div id="slider">
-                It's only a placeholder here
-            </div>
-            <div id="nextBtn"
-                 unselectable="on"
-                 onClick={handleSlider}>Next</div>
-        </div> */}
+        
+        <DrawPopRepCard 
+            handleSlider={handleSlider}
+            pinnedReps={searchResult.pinned}
+            />
+
         <div className="user-reps">
             {userRepos.map((userRep, index) => {
-                const {id, name, 
-                       language, description} = userRep
-                return <DrawRepCard 
-                            key={id}
-                            name={name}
-                            language={language}
-                            description={description}/>
+                if (index > 3) {
+                    return <></>
+                }
+                return <DrawRepCard {...userRep.node} key={userRep.id}/>
             })} 
         </div>
         </>)
     }
 
+
     return (
     <>
-        {isLoading && <div className="spinner"/>}
         {searchResult && UserCard()}
     </>
     )

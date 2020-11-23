@@ -2,15 +2,17 @@ import React from 'react'
 import "../static/css/user-reps.css"
 import Colors from "../static/css/colors.json"
 
-const DrawRepCard = ({name, language, description}) => {
+const DrawRepCard = ({name, language, description,
+                      html_url, url, primaryLanguage}) => {
+    language = language || primaryLanguage.name
     return (
         <div className="rep">
-            <a href="#">{name}</a>
+            <a href={html_url || url}>{name}</a>
             {language && <p>
                 <span 
                     className="circle" 
                     style={{backgroundColor: Colors[language]}}/>
-                {language}
+                {language || primaryLanguage.name}
             </p>}
             <p>
                 <span>stars</span>
